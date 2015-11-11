@@ -1,0 +1,18 @@
+<div class="jumbotron">
+  <h1>Bem vindo!</h1>
+  <p>Faça sua busca abaixo:</p>
+  <p class="row">
+
+    <%= form_tag find_search_index_path, :method => 'get', :html => { :class => "form-horizontal product" } do %>
+      <div class="input-group input-group-lg">
+        <input type="text" class="form-control search-box" id="q" name="q">
+        <span class="input-group-addon">
+          <button type="submit" class="btn btn-primary">
+            <i class="fa fa-search"></i>
+          </button>
+        </span>
+      </div>
+    <% end %>
+
+  </p>
+</div>

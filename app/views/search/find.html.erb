@@ -1,0 +1,33 @@
+<div class="well well-sm">
+  <%= form_tag find_search_index_path, :method => 'get', :html => { :class => "form-horizontal product" } do %>
+    <div class="input-group">
+      <input type="text" class="form-control search-box" id="q" name="q" value="<%= params[:q] %>">
+      <span class="input-group-addon">
+        <button type="submit" class="btn btn-primary">
+          <i class="fa fa-search"></i>
+        </button>
+      </span>
+    </div>
+  <% end %>
+</div>
+
+<div class="row">
+  <div class="col-lg-3 <%= (@solr.results.empty?) ? 'hide' : '' %>">
+    <div class="well sidebar-nav">
+      <h4>Refine Sua Busca</h4>
+      <div id="facets">
+        <%= render 'facets' %>
+      </div>
+    </div><!--/.well -->
+  </div><!--/span-->
+  <div class="<%= (@solr.results.empty?) ? 'col-xs-12' : 'col-xs-9' %>">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Resultados</h3>
+      </div>
+      <div class="panel-body" id="results">
+        <%= render 'results' %>
+      </div>
+    </div>
+  </div>
+</div><!--/row-->

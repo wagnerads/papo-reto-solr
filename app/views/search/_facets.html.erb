@@ -1,0 +1,25 @@
+<% @solr.facets.each do |facet| %>
+  <% next if facet.rows.empty? %>
+
+  <h5><%= t(facet.name) %></h5>
+  <ul class="list-group">
+    <% facet.rows.each do |row| %>
+        <% if params[facet.name].blank? %>
+          <%= link_to params.merge(facet.name => row.value) do %>
+            <li class="list-group-item">
+              <span class="badge"><%= row.count %></span>
+              <%= row.value %>
+            </li>
+          <% end %>
+        <% else %>
+          <%= link_to params.merge(facet.name => nil) do %>
+            <li class="list-group-item">
+              <strong><%= row.value %></strong>
+              <%= icon('trash-o') %>
+            </li>
+          <% end %>
+
+        <% end %>
+    <% end %>
+  </ul>
+<% end %>
