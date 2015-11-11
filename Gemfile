@@ -26,6 +26,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # database
 gem 'pg'
 
+gem 'puma'
+
 # solr
 gem 'sunspot_rails'
 
