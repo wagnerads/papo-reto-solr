@@ -1,6 +1,8 @@
-<% @solr.results.each do |object| %>
-  <%= render partial: 'product', locals: { object: object } %>
-<% end %>
+<div class="list-group">
+  <% @solr.results.each do |object| %>
+    <%= render partial: 'product', locals: { object: object } %>
+  <% end %>
+</div>
 
 <% if @solr.results.empty? %>
   <div class="alert alert-info" role="alert">Nenhum resultado encontrado.</div>

@@ -13,8 +13,8 @@ class Product < ActiveRecord::Base
     text :category, :boost => 2.0
 
     Product.attributes.each do |key|
-      string key.to_sym do
-        properties[key.to_sym]
+      string key do
+        properties[key] if properties && !properties[key].try(:empty?)
       end
     end
   end

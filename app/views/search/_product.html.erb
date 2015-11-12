@@ -1,12 +1,12 @@
-<div class="media">
-  <div class="media-left media-middle">
-    <a href="#">
+<a href="<%= product_path(object) %>" class="list-group-item">
+  <div class="media">
+    <div class="media-left media-middle">
       <img class="media-object" src="<%= object.picture %>">
-    </a>
+    </div>
+    <div class="media-body">
+      <h4 class="media-heading"><%= object.title %></h4>
+      <%= object.description %>
+      <%= object.properties['inch'] %>
+    </div>
   </div>
-  <div class="media-body">
-    <h4 class="media-heading"><%= object.title %></h4>
-    <%= object.description %>
-    <%= object.properties['inch'] %>
-  </div>
-</div>
+</a>
