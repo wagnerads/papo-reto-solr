@@ -25,6 +25,7 @@ class ProductsController < ApplicationController
   # POST /products.json
   def create
     product_params[:properties] = product_params[:properties].reject{|e,v|v.empty?}
+
     @product = Product.new(product_params)
 
     respond_to do |format|

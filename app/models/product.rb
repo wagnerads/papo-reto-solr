@@ -18,6 +18,9 @@ class Product < ActiveRecord::Base
       string key, :multiple => true do
         properties[key].split(",").map(&:strip) if properties[key]
       end
+      text key do
+        properties[key].split(",").map(&:strip) if properties[key]
+      end
     end
   end
 end
