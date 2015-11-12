@@ -15,8 +15,8 @@ class Product < ActiveRecord::Base
     string :brand
 
     Product.attributes.each do |key|
-      string key do
-        properties[key]
+      string key, :multiple => true do
+        properties[key].split(",").map(&:strip) if properties[key]
       end
     end
   end
