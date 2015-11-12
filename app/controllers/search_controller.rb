@@ -8,8 +8,10 @@ class SearchController < ApplicationController
 
       any_of do
         with(:brand, params[:brand]) if params[:brand].present?
+        with(:category, params[:category]) if params[:category].present?
       end
       facet :brand
+      facet :category
 
       Product.attributes.each do |attribute|
         any_of do

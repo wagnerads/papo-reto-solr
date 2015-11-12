@@ -12,6 +12,7 @@ class Product < ActiveRecord::Base
     text :description, :boost => 2.5
     text :category, :boost => 2.0
 
+    string :category
     string :brand
 
     Product.attributes.each do |key|
