@@ -6,17 +6,19 @@ class SearchController < ApplicationController
     @solr = Sunspot.search(Product) do
       fulltext params[:q]
 
+      any_of do
+        with(:brand, params[:brand]) if params[:brand].present?
+      end
+      facet :brand
+
       Product.attributes.each do |attribute|
-        unless params[attribute.to_sym].blank?
-          filter = []
-          filter.push(params[attribute.to_sym])
-
-          with(attribute.to_sym).any_of(filter)
+        any_of do
+          with(attribute, params[attribute]) if params[attribute].present?
         end
-
-        facet attribute.to_sym
+        facet attribute
       end
 
+      paginate page: params[:page], per_page: 30
     end
   end
 end

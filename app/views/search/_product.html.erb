@@ -10,9 +10,9 @@
         <small>
           Especificações:
           <ul>
-            <% object.properties.each do |k,v| %>
+            <% object.properties.each do |key,value| %>
               <li>
-                <strong><%=t(k, scope: [:activerecord, :attributes, :product])%></strong>: <%= v%>
+                <strong><%=t(key, scope: [:activerecord, :attributes, :product])%></strong>: <%= value %>
               </li>
             <% end %>
           </ul>

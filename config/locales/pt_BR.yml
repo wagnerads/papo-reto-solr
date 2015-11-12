@@ -137,3 +137,6 @@ pt_BR:
     array:
       sentence_connector: "e"
       skip_last_comma: true
+  will_paginate:
+      previous_label: 'Anterior'
+      next_label: 'Próxima'

@@ -12,11 +12,12 @@ class Product < ActiveRecord::Base
     text :description, :boost => 2.5
     text :category, :boost => 2.0
 
+    string :brand
+
     Product.attributes.each do |key|
       string key do
-        properties[key] if properties && !properties[key].try(:empty?)
+        properties[key]
       end
     end
   end
 end
-# Tv Microondas Rádio Cafeteira Ventilador
