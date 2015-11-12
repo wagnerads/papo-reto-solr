@@ -5,8 +5,19 @@
     </div>
     <div class="media-body">
       <h4 class="media-heading"><%= object.title %></h4>
-      <%= object.description %>
-      <%= object.properties['inch'] %>
+      <p><%= object.description %></p>
+      <p>
+        <small>
+          Especificações:
+          <ul>
+            <% object.properties.each do |k,v| %>
+              <li>
+                <strong><%=t(k, scope: [:activerecord, :attributes, :product])%></strong>: <%= v%>
+              </li>
+            <% end %>
+          </ul>
+        </small>
+      </p>
     </div>
   </div>
 </a>
