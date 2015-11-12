@@ -1,7 +1,7 @@
 <% @solr.facets.each do |facet| %>
   <% next if facet.rows.empty? %>
 
-  <h5><%= t(facet.name) %></h5>
+  <h5><%= t(facet.name.to_param, scope: [:activerecord, :attributes, :product]) %></h5>
   <ul class="list-group">
     <% facet.rows.each do |row| %>
         <% if params[facet.name].blank? %>
