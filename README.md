@@ -1,4 +1,5 @@
 See project running at: https://papo-reto-solr.herokuapp.com/
+Presentation at: http://labs.bluesoft.com.br/buscas-no-rails-usando-solr/
 
 ## Development ##
 * Start a Solr instance on port 8982:
